@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Etch-A-Sketch!</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Etch-A-Sketch</h1>
+    <div class="options">
+        <h2>Options</h2>
+        <div class ="bw-button">
+            <button class="black">Black</button>
+            <button class="white">White</button>
+        </div>
+        <button class="rainbow">Rainbow Mode</button>
+        <button class="select-color">Select Color</button>
+        <button class="eraser">Eraser</button>
+        <button class="wipe">Wipe</button>
+        <div class="canvas-size">
+            <p>Grid size</p>
+            <label>
+                <input type="range" min="1" max="8" value="4" class="slider">
+            </label>
+        </div>
+    </div>
+    <div class="canvas"></div>
+</body>
+</html>
