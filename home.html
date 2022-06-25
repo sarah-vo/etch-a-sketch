@@ -5,26 +5,33 @@
     <title>Etch-A-Sketch!</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>Etch-A-Sketch</h1>
-    <div class="options">
-        <h2>Options</h2>
-        <div class ="bw-button">
-            <button class="black">Black</button>
-            <button class="white">White</button>
+    <div class="content">
+        <div class="options">
+            <h2>Options</h2>
+            <div class="buttons">
+                <input type="radio" name="buttonGroup" value="black" id="black"><label class="mode-button" for="black">Black</label>
+                <input type="radio" name="buttonGroup" value="rainbow" id="rainbow"><label class="mode-button" for="rainbow">Rainbow Mode</label>
+                <input type="radio" name="buttonGroup" value="select-color" id="select-color"><label class="mode-button" for="select-color">Select Color</label>
+                <input type="radio" name="buttonGroup" value="eraser" id="eraser"><label class="mode-button" for="eraser">Eraser</label>
+                <input type="radio" name="buttonGroup" value="wipe" id="wipe"><label class="mode-button" for="wipe">Wipe</label>
+            </div>
+            <div class="canvas-size">
+                <p>Grid size</p>
+                <div class="grid-size">64x64</div>
+                <label>
+                    <input type="range" min="1" max="5" value="4" class="slider"
+                      onchange = "canvasSizeChanger(this.value)">
+                </label>
+            </div>
         </div>
-        <button class="rainbow">Rainbow Mode</button>
-        <button class="select-color">Select Color</button>
-        <button class="eraser">Eraser</button>
-        <button class="wipe">Wipe</button>
-        <div class="canvas-size">
-            <p>Grid size</p>
-            <label>
-                <input type="range" min="1" max="8" value="4" class="slider">
-            </label>
-        </div>
+        <div class="canvas"></div>
     </div>
-    <div class="canvas"></div>
 </body>
 </html>
