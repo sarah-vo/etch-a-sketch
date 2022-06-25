@@ -1,0 +1,52 @@
+body{
+    margin: 40px;
+    font-family: "Roboto", "sans-serif";
+    display: flex;
+    flex-direction: column;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+}
+h1{
+    text-align: center;
+}
+.options{
+    width: 30%;
+}
+
+input[type='radio'][name='buttonGroup']{
+    display: none;
+}
+label.mode-button{
+    width: 240px;
+    height: 40px;
+    font-size: medium;
+    border-radius: 4px;
+    border: none;
+    /*transition: background-color 80ms;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 4px 4px 4px;
+    background: #c8c8c8;
+}
+input[name='buttonGroup']:checked + label { background-color:darkgrey; }
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.canvas{
+    width: 480px;
+    height: 480px;
+    border: 2px solid black;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.canvas-box{
+}
