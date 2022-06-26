@@ -24,15 +24,15 @@ function setCanvasSize() {
     //smallest number of boxes per line (both vertically and horizontally)
     let smallestBoxNumber = 8;
     let userBoxNumber = smallestBoxNumber * parseInt(canvasSize);
-    let boxSize = canvas.clientHeight / userBoxNumber;
 
     canvas.style.gridTemplateRows = `repeat(${userBoxNumber}, 1fr)`;
     canvas.style.gridTemplateColumns = `repeat(${userBoxNumber}, 1fr)`;
 
+    console.log(`canvas size: ${canvasSize}, user box number: ${userBoxNumber}`);
     console.log(`number of boxes are: ${userBoxNumber*userBoxNumber}`)
     canvas.textContent = '';
     for(let i = 0; i < userBoxNumber*userBoxNumber; i++){
-        canvas.appendChild(document.createElement('div'));
+        canvas.appendChild(document.createElement('div')).classList.add(`canvas-box`);
     }
 
 }
@@ -40,8 +40,27 @@ function setCanvasSize() {
 canvasSizeChanger = (value) => {
     console.log("`canvasSizeChanger evoked`")
     canvasSize = value;
-    gridSizeText.innerText = canvasSizeText();
+    gridSizeText.innerText = `Grid size: ${canvasSizeText()}`;
     setCanvasSize();
+}
+let mouseDown = false;
+colorMode = (mode) =>{
+    const allBox = canvas.querySelectorAll('.canvas-box');
+    if(mode === `wipe`){
+        $(`.canvas div`).removeClass(`black rainbow select-color eraser`)
+    }
+    allBox.forEach(box =>{
+        box.addEventListener(`mousedown`, ()=> {
+            mouseDown = true;
+            box.className = `${mode} canvas-box`;
+        });
+        window.addEventListener(`mouseup`, ()=> mouseDown = false);
+        box.addEventListener('mouseover', () => {
+            if(mouseDown){
+                box.className = `${mode} canvas-box`;
+            }
+        });
+    })
 }
 
 
@@ -49,8 +68,10 @@ canvasSizeChanger = (value) => {
 //Reads user mode selection
 let modeSelection;
 
+
 document.querySelectorAll(`input[type="radio"][name="buttonGroup"]`).forEach((button)=>
         button.addEventListener('click', () => {
             modeSelection = document.querySelector('input[type="radio"][name="buttonGroup"]:checked').value;
             console.log(modeSelection);
+            colorMode(modeSelection);
         }))

@@ -3,13 +3,23 @@ body{
     font-family: "Roboto", "sans-serif";
     display: flex;
     flex-direction: column;
+    background: bisque;
+
 }
 .content{
     display: flex;
     flex-direction: row;
+    min-width: 720px;
+    column-gap: 100px;
+    justify-content: center;
+    align-items: flex-start;
 }
 h1{
     text-align: center;
+    font-size: xxx-large;
+}
+h2{
+    margin-top: 0;
 }
 .options{
     width: 30%;
@@ -29,7 +39,7 @@ label.mode-button{
     justify-content: center;
     align-items: center;
     padding: 4px 4px 4px 4px;
-    background: #c8c8c8;
+    background: lightgrey;
 }
 input[name='buttonGroup']:checked + label { background-color:darkgrey; }
 
@@ -37,16 +47,29 @@ input[name='buttonGroup']:checked + label { background-color:darkgrey; }
     display: flex;
     flex-direction: column;
     gap: 8px;
+    flex: 0 0 auto;
 }
-
+.grid-size{
+    margin: 15px 10px 10px 0;
+    font-weight: bold;
+}
 .canvas{
+    flex: 0 0 auto;
     width: 480px;
     height: 480px;
-    border: 2px solid black;
     display: grid;
-    grid-template-rows: repeat(8, 1fr);
-    grid-template-columns: repeat(8, 1fr);
+    background: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 
 .canvas-box{
+}
+
+.black{
+    background: black;
+}
+.eraser{
+    background: white;
 }
