@@ -66,10 +66,3 @@ input[name='buttonGroup']:checked + label { background-color:darkgrey; }
 
 .canvas-box{
 }
-
-.black{
-    background: black;
-}
-.eraser{
-    background: white;
-}
