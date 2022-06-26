@@ -1,3 +1,4 @@
+
 body{
     margin: 40px;
     font-family: "Roboto", "sans-serif";
@@ -9,10 +10,11 @@ body{
 .content{
     display: flex;
     flex-direction: row;
-    min-width: 720px;
+    min-width: 520px;
     column-gap: 100px;
     justify-content: center;
     align-items: flex-start;
+    flex-wrap:wrap;
 }
 h1{
     text-align: center;
@@ -22,36 +24,58 @@ h2{
     margin-top: 0;
 }
 .options{
-    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 input[type='radio'][name='buttonGroup']{
     display: none;
 }
-label.mode-button{
-    width: 240px;
-    height: 40px;
+.mode-button{
+
+    margin: 8px;
+    width: 252px;
+    height: 52px;
     font-size: medium;
-    border-radius: 4px;
-    border: none;
-    /*transition: background-color 80ms;*/
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 4px 4px 4px 4px;
     background: lightgrey;
+    transition: all 0.3s;
+    border-radius: 6px;
+    border: 2px solid burlywood;
+    border-bottom: 6px solid burlywood;
 }
-input[name='buttonGroup']:checked + label { background-color:darkgrey; }
+input[name='buttonGroup']:checked + label {
+    background-color:darkgrey;
+    border-bottom: 2px solid burlywood;
+}
+
+#wipe:active{
+    background-color:darkgrey;
+    border-bottom: 2px solid burlywood;
+}
+
 
 .buttons{
     display: flex;
     flex-direction: column;
-    gap: 8px;
     flex: 0 0 auto;
+}
+.canvas-size{
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .grid-size{
     margin: 15px 10px 10px 0;
     font-weight: bold;
+    text-align: center;
+
 }
 .canvas{
     flex: 0 0 auto;
@@ -62,7 +86,10 @@ input[name='buttonGroup']:checked + label { background-color:darkgrey; }
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
+    border: 10px solid burlywood;
+    border-radius: 10px;
 }
+
 
 .canvas-box{
 }
